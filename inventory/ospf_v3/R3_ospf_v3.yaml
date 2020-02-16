@@ -1,0 +1,25 @@
+---
+- process_id: '1'
+  router_id: '3.3.3.3'
+  set_stub: 'False'
+  set_totally_stub: 'False'
+  set_nssa_area: '4'
+  set_totally_nssa: 'False'
+  default_route_originate: 'False'
+  default_route_originate_nssa: 'False'
+  ospf_interfaces:
+    Ethernet0/0:
+      check_id: 'R3'
+      area: 'False'
+    Serial2/0:
+      check_id: 'R3'
+      area: '4'
+    Serial2/1:
+      check_id: 'R3'
+      area: '4'
+    Serial2/2:
+      check_id: 'R3'
+      area: 'False'
+    Serial2/3:
+      check_id: 'R3'
+      area: 'False'

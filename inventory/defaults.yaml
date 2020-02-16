@@ -1,0 +1,15 @@
+---
+#https://nornir.readthedocs.io/en/latest/howto/handling_connections.html#Specifying-connection-parameters
+connection_options:
+    netmiko:
+      username: adrian
+      password: ccna
+      platform: ios
+    napalm:
+      username: adrian
+      password: ccna
+      platform: ios
+data:
+  username: adrian
+  password: ccna
+  domain_name: cisco.local

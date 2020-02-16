@@ -1,0 +1,29 @@
+---
+global: #magic key
+  data: #magic key
+    ssh_ver: 2 #key with data
+    domain_name: cisco.local
+cisco: #custom magic key
+  data:
+    platform: 'ios' #key with data
+routers:
+  data:
+    protocols:
+      - ospf
+
+switches:
+  data:
+    native_vlan: 1
+core_sw:
+  groups:
+    - switches
+  data:
+    port_sec: 'disabled'
+distr_sw:
+  groups:
+    - switches
+access_sw:
+  groups:
+    - switches
+  data:
+    port_sec: 'enabled'

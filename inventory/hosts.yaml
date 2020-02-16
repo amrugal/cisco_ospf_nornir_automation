@@ -1,0 +1,440 @@
+---
+R1:
+  hostname: 192.168.100.1
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5000
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.1 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R2
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0000::1/64
+      Serial2/1:
+        description: P2P to R5
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0001::1/64
+      Serial2/2:
+        description: P2P to R7
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0002::1/64
+      Serial2/3:
+        description: P2P to R9
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0003::1/64
+
+R2:
+  hostname: 192.168.100.2
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5000
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.2 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R1
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0000::2/64
+      Serial2/1:
+        description: P2P to R3
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0040::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R3:
+  hostname: 192.168.100.3
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5000
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.3 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R2
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0040::2/64
+      Serial2/1:
+        description: P2P to R4
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0041::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R4:
+  hostname: 192.168.100.4
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5000
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.4 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R3
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0041::2/64
+      Serial2/1:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R5:
+  hostname: 192.168.100.5
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5004
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.5 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R1
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0001::2/64
+      Serial2/1:
+        description: P2P to R2
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0020::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R6:
+  hostname: 192.168.100.6
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5005
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.6 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R5
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0020::2/64
+      Serial2/1:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R7:
+  hostname: 192.168.100.7
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5006
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.7 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R1
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0002::2/64
+      Serial2/1:
+        description: P2P to R8
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0010::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R8:
+  hostname: 192.168.100.8
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5007
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.8 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R7
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0010::2/64
+      Serial2/1:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R9:
+  hostname: 192.168.100.9
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5008
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.9 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R1
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0003::2/64
+      Serial2/1:
+        description: P2P to R10
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0030::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R10:
+  hostname: 192.168.100.10
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5009
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.10 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R9
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0030::2/64
+      Serial2/1:
+        description: P2P to R11
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0031::1/64
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+
+R11:
+  hostname: 192.168.100.11
+  platform: ios
+  groups:
+    - global
+    - cisco
+    - routers
+  data:
+    gns3:
+      gns3_ip: 192.168.1.41
+      gns3_port: 5009
+      gns3_console: cisco_ios_telnet
+    dev_type: router
+    interfaces:
+      Ethernet0/0:
+        description: MGMT Nornir
+        state: no shutdown
+        ipv4: 192.168.100.11 255.255.255.0
+        ipv6: False
+      Serial2/0:
+        description: P2P to R10
+        state: no shutdown
+        ipv4: False
+        ipv6: 2001:db8:1234:0031::2/64
+      Serial2/1:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/2:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False
+      Serial2/3:
+        description: Not used
+        state: shutdown
+        ipv4: False
+        ipv6: False

@@ -1,0 +1,38 @@
+!
+ipv6 unicast-routing
+ipv6 cef
+{% for item in ospf %}
+router ospfv3 {{item.process_id}}
+ router-id {{item.router_id}}
+{% if item.default_route_originate != 'False' %}
+ address-family ipv6 unicast
+  default-information originate
+{% endif %}
+{% if item.set_stub != 'False' %}
+ area {{item.set_stub}} stub
+{% endif %}
+{% if item.set_totally_stub != 'False' %}
+ area {{item.set_totally_stub}} stub no-summary
+{% endif %}
+{% if item.set_nssa != 'False' %}
+{% if item.default_route_originate_nssa != 'False' %}
+ area {{item.default_route_originate_nssa}} nssa default-information-originate
+{% endif %}
+{% endif %}
+{% if item.set_totally_nssa != 'False' %}
+ area {{item.set_totally_nssa}} nssa no-summary
+!
+{% endif %}
+{% for interface, values in item.ospf_interfaces.items() %}
+{% if values.area != 'False' %}
+interface {{interface}}
+ ipv6 enable
+ no ipv6 address
+ ipv6 address {{host.data.interfaces[interface].ipv6}}
+ ipv6 ospf 1 area {{values.area}}
+ no shutdown
+{% endif %}
+{% endfor %}
+{% endfor %}
+do clear ipv6 ospf process
+yes

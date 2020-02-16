@@ -1,0 +1,53 @@
+---
+# stub == area 1 stub // totally stub == area 1 stub no-summary //
+# nssa == area 1 nssa // totally nssa == area 1 nssa no-summary //
+# stub - no LSA type 5 // totally stub - no LSA type 3/5 //
+# nssa - no LSA 5 but allow 7 // totally nssa - no LSA 3/5 but allow 7 //
+- process_id: '1' # OSPF instance id
+  router_id: '1.1.1.1' # OSPF router id
+  set_stub: 'False' # set True/False to turn on/off Stub Area
+  set_totally_stub: 'False' # set True/False to turn on/off Totally Stub Area
+  set_nssa: 'True' # set True/False to turn on/off NSSA Area
+  set_totally_nssa: 'False' # set True/False to turn on/off Totally NSSA Area
+  default_route_originate: 'True' # set True/False to originate Default Route into OSPF
+  default_route_originate_nssa: '4' # set Number/False, injects Default Route originated from OSPF into specified NSSA Area, set False if not used
+  ospf_interfaces:
+    Ethernet0/0:
+      check_id: 'R1' # used only for jinja2 testing
+      area: 'False' # set False if not used, set to number that corresponds to Area that need to be enabled
+    Serial2/0:
+      check_id: 'R1'
+      area: '0'
+    Serial2/1:
+      check_id: 'R1'
+      area: '0'
+    Serial2/2:
+      check_id: 'R1'
+      area: '0'
+    Serial2/3:
+      check_id: 'R1'
+      area: '0'
+#- process_id: '2'
+#  router_id: '100.100.100.100'
+#  stub_area: '1'
+#  totally_stub_area: '2'
+#  nssa_area: '3'
+#  totally_nssa_area: '4'
+#  default_originate: 'True'
+#  default_route_originate_nssa: 'False'
+#  ospf_interfaces:
+#    Ethernet0/0:
+#      check_id: 'R1'
+#      area: False
+#    Serial2/0:
+#      check_id: 'R1'
+#      area: '0'
+#    Serial2/1:
+#      check_id: 'R1'
+#      area: '0'
+#    Serial2/2:
+#      check_id: 'R1'
+#      area: '0'
+#    Serial2/3:
+#      check_id: 'R1'
+#      area: '0'

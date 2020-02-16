@@ -1,0 +1,206 @@
+Using 2569 out of 32768 bytes
+!
+! Last configuration change at 18:29:08 UTC Sat Feb 15 2020
+!
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+bsd-client server url https://cloudsso.cisco.com/as/token.oauth2
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip domain name cisco.local
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+cts logging verbose
+!
+!
+username adrian privilege 15 secret 5 $1$oIOP$pfjlx0WbRXCYWdmvQ/t3P.
+!
+redundancy
+!
+!
+ip tcp synwait-time 5
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback99
+ description Internet
+ no ip address
+ ipv6 address 2001::1/64
+!
+interface Ethernet0/0
+ ip address 192.168.100.1 255.255.255.0
+!
+interface Ethernet0/1
+ no ip address
+ shutdown
+!
+interface Ethernet0/2
+ no ip address
+ shutdown
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+!
+interface Ethernet1/0
+ no ip address
+ shutdown
+!
+interface Ethernet1/1
+ no ip address
+ shutdown
+!
+interface Ethernet1/2
+ no ip address
+ shutdown
+!
+interface Ethernet1/3
+ no ip address
+ shutdown
+!
+interface Serial2/0
+ no ip address
+ ipv6 address 2001:DB8:1234::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+ serial restart-delay 0
+!
+interface Serial2/1
+ no ip address
+ ipv6 address 2001:DB8:1234:1::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+ serial restart-delay 0
+!
+interface Serial2/2
+ no ip address
+ ipv6 address 2001:DB8:1234:2::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+ serial restart-delay 0
+!
+interface Serial2/3
+ no ip address
+ ipv6 address 2001:DB8:1234:3::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+ serial restart-delay 0
+!
+interface Serial3/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial3/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial3/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial3/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+router ospfv3 1
+ router-id 1.1.1.1
+ !
+ address-family ipv6 unicast
+  default-information originate
+ exit-address-family
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 192.168.1.0 255.255.255.0 192.168.100.254
+!
+ipv6 route ::/0 Loopback99
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+end
